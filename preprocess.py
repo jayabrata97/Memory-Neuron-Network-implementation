@@ -43,17 +43,17 @@ for env_idx in range(0, 5): # only considering towns 1-4
         vehicle_trf_1_train.append(np_vehicle_trf_1)
         
         #print(np_vehicle_trf_0.shape, np_vehicle_trf_1.shape)
-print('count:',count)
-print(len(vehicle_trajectory_list))
-np.random.shuffle(vehicle_trajectory_list)
-print(len(vehicle_trajectory_list))
+#print('count:',count)
+#print(len(vehicle_trajectory_list))
+#np.random.shuffle(vehicle_trajectory_list)
+#print(len(vehicle_trajectory_list))
         
         
 print("Saving data...")
 
 
-#vehicle_trf_0_train = np.concatenate(vehicle_trf_0_train, axis=0)
-vehicle_trf_0_train = np.concatenate(vehicle_trajectory_list, axis=0)
+vehicle_trf_0_train = np.concatenate(vehicle_trf_0_train, axis=0)
+#vehicle_trf_0_train = np.concatenate(vehicle_trajectory_list, axis=0)
 
 #n, bins, patches = plt.hist(np.abs(vehicle_trf_0_train[:,0]))
 
@@ -62,9 +62,9 @@ print(vehicle_trf_0_train.shape)
 with open("processed/vehicle_trf_0_train_v3.npy", "wb") as f:
     np.save(f, vehicle_trf_0_train)
     
-#vehicle_trf_1_train = np.concatenate(vehicle_trf_1_train, axis=0)
-#with open("processed/vehicle_trf_1_train_v3.npy", "wb") as f:
-#    np.save(f, vehicle_trf_1_train)
+vehicle_trf_1_train = np.concatenate(vehicle_trf_1_train, axis=0)
+with open("processed/vehicle_trf_1_train_v3.npy", "wb") as f:
+    np.save(f, vehicle_trf_1_train)
         
 #print(f'Mean of trf 0 in env{env_idx} of task {task_idx}\t',np.mean(np_vehicle_trf_0[:,0]),'\t', np.mean(np_vehicle_trf_0[:,1]))
 #print(f'Std of trf 0 in env {env_idx} of task {task_idx} \t', np.std(np_vehicle_trf_0[:,0]),'\t', np.std(np_vehicle_trf_0[:,1]))
